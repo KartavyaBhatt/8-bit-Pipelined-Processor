@@ -1,0 +1,3 @@
+verilog isim_temp "ExecutionBlock.v"
+verilog isim_temp "ExecutionBlock_tb.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,459 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Reading design: ExecutionBlock.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ExecutionBlock.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ExecutionBlock"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : ExecutionBlock
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ExecutionBlock.v" in library work
+Module <ExecutionBlock> compiled
+No errors in compilation
+Analysis of file <"ExecutionBlock.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ExecutionBlock> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ExecutionBlock>.
+Module <ExecutionBlock> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <ExecutionBlock>.
+    Related source file is "ExecutionBlock.v".
+    Found 8-bit register for signal <B_Bypass>.
+    Found 5-bit register for signal <RW_ex>.
+    Found 8-bit register for signal <ans_ex>.
+    Found 8-bit register for signal <data_out>.
+    Found 1-bit register for signal <mem_en_ex>.
+    Found 1-bit register for signal <mem_mux_sel_ex>.
+    Found 1-bit register for signal <mem_rw_ex>.
+    Found 7-bit adder carry out for signal <AUX_1$addsub0000>.
+    Found 1-bit adder carry out for signal <AUX_2$addsub0001> created at line 76.
+    Found 7-bit adder carry out for signal <AUX_3$addsub0000>.
+    Found 1-bit adder carry out for signal <AUX_4$addsub0001> created at line 83.
+    Found 8-bit adder for signal <B_SUB>.
+    Found 8-bit register for signal <data_out_buff_clk>.
+    Found 4-bit register for signal <flag_ex_clk>.
+    Found 1-bit xor8 for signal <P>.
+    Found 8-bit shifter logical left for signal <temp22$shift0000> created at line 113.
+    Found 8-bit shifter logical right for signal <temp23$shift0000> created at line 114.
+    Found 8-bit xor2 for signal <temp6$xor0000> created at line 97.
+    Found 1-bit xor2 for signal <V_temp1>.
+    Found 1-bit xor2 for signal <V_temp2>.
+    Summary:
+	inferred  44 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred   2 Combinational logic shifter(s).
+	inferred   1 Xor(s).
+Unit <ExecutionBlock> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 7
+ 1-bit adder carry out                                 : 2
+ 2-bit adder                                           : 2
+ 7-bit adder carry out                                 : 2
+ 8-bit adder                                           : 1
+# Registers                                            : 9
+ 1-bit register                                        : 3
+ 4-bit register                                        : 1
+ 5-bit register                                        : 1
+ 8-bit register                                        : 4
+# Logic shifters                                       : 2
+ 8-bit shifter logical left                            : 1
+ 8-bit shifter logical right                           : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 7
+ 1-bit adder carry out                                 : 2
+ 2-bit adder                                           : 2
+ 7-bit adder carry out                                 : 2
+ 8-bit adder                                           : 1
+# Registers                                            : 44
+ Flip-Flops                                            : 44
+# Logic shifters                                       : 2
+ 8-bit shifter logical left                            : 1
+ 8-bit shifter logical right                           : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ExecutionBlock> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ExecutionBlock, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 44
+ Flip-Flops                                            : 44
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ExecutionBlock.ngr
+Top Level Output File Name         : ExecutionBlock
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 75
+
+Cell Usage :
+# BELS                             : 258
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 20
+#      LUT2_L                      : 2
+#      LUT3                        : 46
+#      LUT4                        : 119
+#      LUT4_L                      : 1
+#      MUXCY                       : 14
+#      MUXF5                       : 39
+#      VCC                         : 1
+#      XORCY                       : 14
+# FlipFlops/Latches                : 44
+#      FD                          : 12
+#      FDR                         : 32
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 74
+#      IBUF                        : 38
+#      OBUF                        : 36
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      104  out of   4656     2%  
+ Number of Slice Flip Flops:             28  out of   9312     0%  
+ Number of 4 input LUTs:                189  out of   9312     2%  
+ Number of IOs:                          75
+ Number of bonded IOBs:                  75  out of    232    32%  
+    IOB Flip Flops:                      16
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 44    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 4.120ns (Maximum Frequency: 242.701MHz)
+   Minimum input arrival time before clock: 13.019ns
+   Maximum output required time after clock: 7.401ns
+   Maximum combinational path delay: 16.300ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.120ns (frequency: 242.701MHz)
+  Total number of paths / destination ports: 46 / 28
+-------------------------------------------------------------------------
+Delay:               4.120ns (Levels of Logic = 4)
+  Source:            ans_ex_6 (FF)
+  Destination:       flag_ex_clk_1 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: ans_ex_6 to flag_ex_clk_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.514   0.383  ans_ex_6 (ans_ex_6)
+     LUT4:I3->O            3   0.612   0.481  ans_temp<6>268 (ans_ex_reg<6>_norst)
+     LUT4:I2->O            1   0.612   0.000  flag_ex<1>44_SW0_SW0_F (N175)
+     MUXF5:I0->O           1   0.278   0.360  flag_ex<1>44_SW0_SW0 (N143)
+     LUT4:I3->O            2   0.612   0.000  flag_ex<1>71 (flag_ex_1_OBUF)
+     FD:D                      0.268          flag_ex_clk_1
+    ----------------------------------------
+    Total                      4.120ns (2.896ns logic, 1.224ns route)
+                                       (70.3% logic, 29.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 2962 / 68
+-------------------------------------------------------------------------
+Offset:              13.019ns (Levels of Logic = 13)
+  Source:            B<0> (PAD)
+  Destination:       flag_ex_clk_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: B<0> to flag_ex_clk_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            37   1.106   1.226  B_0_IBUF (B_0_IBUF)
+     LUT4:I0->O            3   0.612   0.481  Madd_B_SUB_xor<4>111 (N67)
+     LUT3:I2->O            3   0.612   0.481  Madd_B_SUB_xor<6>111 (N5)
+     LUT3:I2->O            1   0.612   0.000  Madd_AUX_3_addsub0000_lut<6> (Madd_AUX_3_addsub0000_lut<6>)
+     MUXCY:S->O            3   0.752   0.520  Madd_AUX_3_addsub0000_cy<6> (temp_carry1)
+     LUT2:I1->O            1   0.612   0.000  ans_temp<7>291_SW01 (ans_temp<7>291_SW0)
+     MUXF5:I1->O           1   0.278   0.426  ans_temp<7>291_SW0_f5 (N183)
+     LUT2:I1->O            1   0.612   0.000  ans_temp<7>2912 (ans_temp<7>2912)
+     MUXF5:I0->O           1   0.278   0.426  ans_temp<7>291_f5 (ans_temp<7>291)
+     LUT4:I1->O            1   0.612   0.426  ans_temp<7>154_SW0 (N171)
+     LUT4:I1->O            3   0.612   0.454  ans_temp<7>342 (ans_ex_reg<7>_norst)
+     LUT4:I3->O            1   0.612   0.387  flag_ex<3>35_SW0 (N173)
+     LUT4:I2->O            2   0.612   0.000  flag_ex<3>35 (flag_ex_3_OBUF)
+     FD:D                      0.268          flag_ex_clk_3
+    ----------------------------------------
+    Total                     13.019ns (8.190ns logic, 4.829ns route)
+                                       (62.9% logic, 37.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 54 / 36
+-------------------------------------------------------------------------
+Offset:              7.401ns (Levels of Logic = 5)
+  Source:            ans_ex_6 (FF)
+  Destination:       flag_ex<1> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: ans_ex_6 to flag_ex<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.514   0.383  ans_ex_6 (ans_ex_6)
+     LUT4:I3->O            3   0.612   0.481  ans_temp<6>268 (ans_ex_reg<6>_norst)
+     LUT4:I2->O            1   0.612   0.000  flag_ex<1>44_SW0_SW0_F (N175)
+     MUXF5:I0->O           1   0.278   0.360  flag_ex<1>44_SW0_SW0 (N143)
+     LUT4:I3->O            2   0.612   0.380  flag_ex<1>71 (flag_ex_1_OBUF)
+     OBUF:I->O                 3.169          flag_ex_1_OBUF (flag_ex<1>)
+    ----------------------------------------
+    Total                      7.401ns (5.797ns logic, 1.604ns route)
+                                       (78.3% logic, 21.7% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1954 / 4
+-------------------------------------------------------------------------
+Delay:               16.300ns (Levels of Logic = 14)
+  Source:            B<0> (PAD)
+  Destination:       flag_ex<3> (PAD)
+
+  Data Path: B<0> to flag_ex<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            37   1.106   1.226  B_0_IBUF (B_0_IBUF)
+     LUT4:I0->O            3   0.612   0.481  Madd_B_SUB_xor<4>111 (N67)
+     LUT3:I2->O            3   0.612   0.481  Madd_B_SUB_xor<6>111 (N5)
+     LUT3:I2->O            1   0.612   0.000  Madd_AUX_3_addsub0000_lut<6> (Madd_AUX_3_addsub0000_lut<6>)
+     MUXCY:S->O            3   0.752   0.520  Madd_AUX_3_addsub0000_cy<6> (temp_carry1)
+     LUT2:I1->O            1   0.612   0.000  ans_temp<7>291_SW01 (ans_temp<7>291_SW0)
+     MUXF5:I1->O           1   0.278   0.426  ans_temp<7>291_SW0_f5 (N183)
+     LUT2:I1->O            1   0.612   0.000  ans_temp<7>2912 (ans_temp<7>2912)
+     MUXF5:I0->O           1   0.278   0.426  ans_temp<7>291_f5 (ans_temp<7>291)
+     LUT4:I1->O            1   0.612   0.426  ans_temp<7>154_SW0 (N171)
+     LUT4:I1->O            3   0.612   0.454  ans_temp<7>342 (ans_ex_reg<7>_norst)
+     LUT4:I3->O            1   0.612   0.387  flag_ex<3>35_SW0 (N173)
+     LUT4:I2->O            2   0.612   0.380  flag_ex<3>35 (flag_ex_3_OBUF)
+     OBUF:I->O                 3.169          flag_ex_3_OBUF (flag_ex<3>)
+    ----------------------------------------
+    Total                     16.300ns (11.091ns logic, 5.209ns route)
+                                       (68.0% logic, 32.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 27.00 secs
+Total CPU time to Xst completion: 27.00 secs
+ 
+--> 
+
+Total memory usage is 305872 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

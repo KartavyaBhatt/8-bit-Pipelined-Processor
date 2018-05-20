@@ -1,0 +1,695 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Reading design: Microprocessor.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Microprocessor.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Microprocessor"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : Microprocessor
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ipcore_dir/ProgramMemory.v" in library work
+Compiling verilog file "ipcore_dir/DataMemory.v" in library work
+Module <ProgramMemory> compiled
+Compiling verilog file "WriteBackBlock.v" in library work
+Module <DataMemory> compiled
+Compiling verilog file "StallControlBlock.v" in library work
+Module <WriteBackBlock> compiled
+Compiling verilog file "RB.v" in library work
+Module <StallControlBlock> compiled
+Compiling verilog file "PCandIM.v" in library work
+Module <RB> compiled
+Compiling verilog file "JumpControlBlock.v" in library work
+Module <PCandIM> compiled
+Compiling verilog file "ExecutionBlock.v" in library work
+Module <JumpControlBlock> compiled
+Compiling verilog file "DM.v" in library work
+Module <ExecutionBlock> compiled
+Compiling verilog file "DependencyCheckBlock.v" in library work
+Module <DM> compiled
+Compiling verilog file "Microprocessor.v" in library work
+Module <DependencyCheckBlock> compiled
+Module <Microprocessor> compiled
+No errors in compilation
+Analysis of file <"Microprocessor.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Microprocessor> in library <work>.
+
+Analyzing hierarchy for module <DM> in library <work>.
+
+Analyzing hierarchy for module <DependencyCheckBlock> in library <work>.
+
+Analyzing hierarchy for module <ExecutionBlock> in library <work>.
+
+Analyzing hierarchy for module <JumpControlBlock> in library <work>.
+
+Analyzing hierarchy for module <PCandIM> in library <work>.
+
+Analyzing hierarchy for module <RB> in library <work>.
+
+Analyzing hierarchy for module <StallControlBlock> in library <work>.
+
+Analyzing hierarchy for module <WriteBackBlock> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Microprocessor>.
+Module <Microprocessor> is correct for synthesis.
+ 
+Analyzing module <DM> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/DataMemory.v" line 47: Instantiating black box module <DataMemory>.
+Module <DM> is correct for synthesis.
+ 
+Analyzing module <DependencyCheckBlock> in library <work>.
+Module <DependencyCheckBlock> is correct for synthesis.
+ 
+Analyzing module <ExecutionBlock> in library <work>.
+Module <ExecutionBlock> is correct for synthesis.
+ 
+Analyzing module <JumpControlBlock> in library <work>.
+Module <JumpControlBlock> is correct for synthesis.
+ 
+Analyzing module <PCandIM> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/ProgramMemory.v" line 47: Instantiating black box module <ProgramMemory>.
+Module <PCandIM> is correct for synthesis.
+ 
+Analyzing module <RB> in library <work>.
+Module <RB> is correct for synthesis.
+ 
+Analyzing module <StallControlBlock> in library <work>.
+Module <StallControlBlock> is correct for synthesis.
+ 
+Analyzing module <WriteBackBlock> in library <work>.
+Module <WriteBackBlock> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <DependencyCheckBlock>.
+    Related source file is "DependencyCheckBlock.v".
+    Register <RW_dec> equivalent to <Rw2> has been removed
+    Found 1-bit register for signal <imm_sel>.
+    Found 1-bit register for signal <mem_rw_dec>.
+    Found 5-bit register for signal <op_dec>.
+    Found 5-bit register for signal <Imm<4:0>>.
+    Found 1-bit register for signal <mem_en_dec>.
+    Found 5-bit comparator equal for signal <aEqualw2$cmp_eq0000> created at line 71.
+    Found 5-bit comparator equal for signal <aEqualw3$cmp_eq0000> created at line 72.
+    Found 5-bit comparator equal for signal <aEqualw4$cmp_eq0000> created at line 73.
+    Found 5-bit comparator equal for signal <bEqualw2$cmp_eq0000> created at line 75.
+    Found 5-bit comparator equal for signal <bEqualw3$cmp_eq0000> created at line 76.
+    Found 5-bit comparator equal for signal <bEqualw4$cmp_eq0000> created at line 77.
+    Found 1-bit register for signal <Load_reg<0>>.
+    Found 5-bit register for signal <Ra>.
+    Found 5-bit register for signal <Rb>.
+    Found 5-bit register for signal <Rw1>.
+    Found 5-bit register for signal <Rw2>.
+    Found 5-bit register for signal <Rw3>.
+    Found 5-bit register for signal <Rw4>.
+    Summary:
+	inferred  44 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <DependencyCheckBlock> synthesized.
+
+
+Synthesizing Unit <ExecutionBlock>.
+    Related source file is "ExecutionBlock.v".
+    Found 8-bit register for signal <B_Bypass>.
+    Found 8-bit register for signal <data_out>.
+    Found 8-bit register for signal <ans_ex>.
+    Found 1-bit register for signal <mem_rw_ex>.
+    Found 5-bit register for signal <RW_ex>.
+    Found 1-bit register for signal <mem_en_ex>.
+    Found 1-bit register for signal <mem_mux_sel_ex>.
+    Found 7-bit adder carry out for signal <AUX_1$addsub0000>.
+    Found 1-bit adder carry out for signal <AUX_2$addsub0001> created at line 75.
+    Found 7-bit adder carry out for signal <AUX_3$addsub0000>.
+    Found 1-bit adder carry out for signal <AUX_4$addsub0001> created at line 82.
+    Found 8-bit adder for signal <B_SUB>.
+    Found 4-bit register for signal <flag_ex_clk>.
+    Found 1-bit xor8 for signal <P>.
+    Found 8-bit shifter logical left for signal <temp22$shift0000> created at line 112.
+    Found 8-bit shifter logical right for signal <temp23$shift0000> created at line 113.
+    Found 8-bit xor2 for signal <temp6$xor0000> created at line 96.
+    Found 1-bit xor2 for signal <V_temp1>.
+    Found 1-bit xor2 for signal <V_temp2>.
+    Summary:
+	inferred  36 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred   2 Combinational logic shifter(s).
+	inferred   1 Xor(s).
+Unit <ExecutionBlock> synthesized.
+
+
+Synthesizing Unit <JumpControlBlock>.
+    Related source file is "JumpControlBlock.v".
+WARNING:Xst:647 - Input <flag_ex<3:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ins<14:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <current_adr_reg>.
+    Found 2-bit register for signal <flag_reg>.
+    Found 1-bit register for signal <interrupt_reg>.
+    Summary:
+	inferred  11 D-type flip-flop(s).
+Unit <JumpControlBlock> synthesized.
+
+
+Synthesizing Unit <RB>.
+    Related source file is "RB.v".
+WARNING:Xst:647 - Input <ins<19:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit 4-to-1 multiplexer for signal <A>.
+    Found 8-bit register for signal <reg_A>.
+    Found 8-bit register for signal <reg_B>.
+    Found 256-bit register for signal <Register_Bank>.
+    Found 8-bit 4-to-1 multiplexer for signal <temp_B>.
+INFO:Xst:738 - HDL ADVISOR - 256 flip-flops were inferred for signal <Register_Bank>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 272 D-type flip-flop(s).
+	inferred  32 Multiplexer(s).
+Unit <RB> synthesized.
+
+
+Synthesizing Unit <StallControlBlock>.
+    Related source file is "StallControlBlock.v".
+WARNING:Xst:647 - Input <ins_pm<14:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <stall_pm>.
+    Found 1-bit register for signal <Q_JMP1>.
+    Found 1-bit register for signal <Q_JMP2>.
+    Found 1-bit register for signal <Q_LD>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <StallControlBlock> synthesized.
+
+
+Synthesizing Unit <WriteBackBlock>.
+    Related source file is "WriteBackBlock.v".
+    Found 8-bit register for signal <ans_wb>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <WriteBackBlock> synthesized.
+
+
+Synthesizing Unit <DM>.
+    Related source file is "DM.v".
+    Found 5-bit register for signal <RW_dm>.
+    Found 5-bit register for signal <ans_reg>.
+    Found 1-bit register for signal <mem_mux_sel_dm>.
+    Summary:
+	inferred  11 D-type flip-flop(s).
+Unit <DM> synthesized.
+
+
+Synthesizing Unit <PCandIM>.
+    Related source file is "PCandIM.v".
+    Found 8-bit register for signal <address_hold>.
+    Found 8-bit adder for signal <increment_address>.
+    Found 20-bit register for signal <ins_temp>.
+    Found 8-bit register for signal <next_address>.
+    Summary:
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <PCandIM> synthesized.
+
+
+Synthesizing Unit <Microprocessor>.
+    Related source file is "Microprocessor.v".
+Unit <Microprocessor> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 1-bit adder carry out                                 : 2
+ 2-bit adder                                           : 2
+ 7-bit adder carry out                                 : 2
+ 8-bit adder                                           : 2
+# Registers                                            : 72
+ 1-bit register                                        : 18
+ 2-bit register                                        : 1
+ 20-bit register                                       : 1
+ 4-bit register                                        : 1
+ 5-bit register                                        : 10
+ 8-bit register                                        : 41
+# Comparators                                          : 6
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 4
+ 8-bit 32-to-1 multiplexer                             : 2
+ 8-bit 4-to-1 multiplexer                              : 2
+# Logic shifters                                       : 2
+ 8-bit shifter logical left                            : 1
+ 8-bit shifter logical right                           : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/DataMemory.ngc>.
+Reading core <ipcore_dir/ProgramMemory.ngc>.
+Loading core <DataMemory> for timing and area information for instance <dataMem>.
+Loading core <ProgramMemory> for timing and area information for instance <progMem>.
+WARNING:Xst:2677 - Node <flag_ex_clk_2> of sequential type is unconnected in block <inst2>.
+WARNING:Xst:2677 - Node <flag_ex_clk_3> of sequential type is unconnected in block <inst2>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 1-bit adder carry out                                 : 2
+ 2-bit adder                                           : 2
+ 7-bit adder carry out                                 : 2
+ 8-bit adder                                           : 2
+# Registers                                            : 422
+ Flip-Flops                                            : 422
+# Comparators                                          : 6
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 18
+ 1-bit 32-to-1 multiplexer                             : 16
+ 8-bit 4-to-1 multiplexer                              : 2
+# Logic shifters                                       : 2
+ 8-bit shifter logical left                            : 1
+ 8-bit shifter logical right                           : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Microprocessor> ...
+
+Optimizing unit <DependencyCheckBlock> ...
+
+Optimizing unit <ExecutionBlock> ...
+
+Optimizing unit <JumpControlBlock> ...
+
+Optimizing unit <RB> ...
+
+Optimizing unit <StallControlBlock> ...
+
+Optimizing unit <WriteBackBlock> ...
+
+Optimizing unit <DM> ...
+
+Optimizing unit <PCandIM> ...
+WARNING:Xst:2677 - Node <inst2/flag_ex_clk_3> of sequential type is unconnected in block <Microprocessor>.
+WARNING:Xst:2677 - Node <inst2/flag_ex_clk_2> of sequential type is unconnected in block <Microprocessor>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <inst1/Rw3_2> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst2/RW_ex_2> 
+INFO:Xst:2261 - The FF/Latch <inst1/op_dec_2> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst4/ins_temp_17> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw3_3> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst2/RW_ex_3> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw3_4> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst2/RW_ex_4> 
+INFO:Xst:2261 - The FF/Latch <inst1/op_dec_1> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst4/ins_temp_16> 
+INFO:Xst:2261 - The FF/Latch <inst1/op_dec_0> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst4/ins_temp_15> 
+INFO:Xst:2261 - The FF/Latch <inst1/op_dec_4> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst4/ins_temp_19> 
+INFO:Xst:2261 - The FF/Latch <inst1/op_dec_3> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst4/ins_temp_18> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw3_0> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst2/RW_ex_0> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw3_1> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst2/RW_ex_1> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw4_0> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst0/RW_dm_0> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw4_1> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst0/RW_dm_1> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw4_2> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst0/RW_dm_2> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw4_3> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst0/RW_dm_3> 
+INFO:Xst:2261 - The FF/Latch <inst1/Rw4_4> in Unit <Microprocessor> is equivalent to the following FF/Latch, which will be removed : <inst0/RW_dm_4> 
+Found area constraint ratio of 100 (+ 5) on block Microprocessor, actual ratio is 10.
+FlipFlop inst1/Rw4_2 has been replicated 1 time(s)
+FlipFlop inst1/Rw4_3 has been replicated 1 time(s)
+FlipFlop inst1/Rw4_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 408
+ Flip-Flops                                            : 408
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Microprocessor.ngr
+Top Level Output File Name         : Microprocessor
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 87
+
+Cell Usage :
+# BELS                             : 1056
+#      GND                         : 3
+#      INV                         : 1
+#      LUT2                        : 22
+#      LUT2_D                      : 2
+#      LUT2_L                      : 3
+#      LUT3                        : 377
+#      LUT3_D                      : 12
+#      LUT3_L                      : 4
+#      LUT4                        : 257
+#      LUT4_D                      : 30
+#      LUT4_L                      : 34
+#      MUXCY                       : 14
+#      MUXF5                       : 168
+#      MUXF6                       : 64
+#      MUXF7                       : 32
+#      MUXF8                       : 16
+#      VCC                         : 3
+#      XORCY                       : 14
+# FlipFlops/Latches                : 408
+#      FD                          : 2
+#      FDE                         : 256
+#      FDR                         : 132
+#      FDRE                        : 10
+#      FDRS                        : 8
+# RAMS                             : 2
+#      RAMB16_S36_S36              : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 86
+#      IBUF                        : 10
+#      OBUF                        : 76
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      519  out of   4656    11%  
+ Number of Slice Flip Flops:            408  out of   9312     4%  
+ Number of 4 input LUTs:                742  out of   9312     7%  
+ Number of IOs:                          87
+ Number of bonded IOBs:                  87  out of    232    37%  
+ Number of BRAMs:                         2  out of     20    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 410   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 13.782ns (Maximum Frequency: 72.558MHz)
+   Minimum input arrival time before clock: 11.394ns
+   Maximum output required time after clock: 16.041ns
+   Maximum combinational path delay: 13.425ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 13.782ns (frequency: 72.558MHz)
+  Total number of paths / destination ports: 462960 / 715
+-------------------------------------------------------------------------
+Delay:               13.782ns (Levels of Logic = 13)
+  Source:            inst1/Rb_1 (FF)
+  Destination:       inst4/next_address_5 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: inst1/Rb_1 to inst4/next_address_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.514   0.603  inst1/Rb_1 (inst1/Rb_1)
+     LUT4:I0->O            1   0.612   0.360  inst1/bEqualw2526 (inst1/bEqualw2526)
+     LUT4:I3->O            2   0.612   0.449  inst1/bEqualw2578 (inst1/bEqualw2)
+     LUT3:I1->O           16   0.612   0.909  inst1/mux_sel_B_0_or00001 (mux_sel_B<0>)
+     LUT3:I2->O            1   0.612   0.000  inst5/Mmux_temp_B_2_f5_3_F (N245)
+     MUXF5:I0->O           4   0.278   0.529  inst5/Mmux_temp_B_2_f5_3 (inst5/temp_B<4>)
+     LUT3:I2->O            6   0.612   0.638  inst5/B<4>1 (B_4_OBUF)
+     LUT4:I1->O            1   0.612   0.387  inst2/Madd_B_SUB_cy<4>11 (inst2/Madd_B_SUB_cy<4>)
+     LUT3:I2->O            1   0.612   0.000  inst2/Madd_AUX_3_addsub0000_lut<5> (inst2/Madd_AUX_3_addsub0000_lut<5>)
+     MUXCY:S->O            1   0.404   0.000  inst2/Madd_AUX_3_addsub0000_cy<5> (inst2/Madd_AUX_3_addsub0000_cy<5>)
+     MUXCY:CI->O           2   0.399   0.383  inst2/Madd_AUX_3_addsub0000_cy<6> (inst2/temp_carry1)
+     LUT4_D:I3->O         15   0.612   0.867  inst2/flag_ex<0>13 (inst2/flag_ex<0>13)
+     LUT4:I3->O            8   0.612   0.673  inst4/current_address<4> (current_address_4_OBUF)
+     LUT3:I2->O            1   0.612   0.000  inst4/Madd_increment_address_xor<5>11 (inst4/increment_address<5>)
+     FDR:D                     0.268          inst4/next_address_5
+    ----------------------------------------
+    Total                     13.782ns (7.984ns logic, 5.799ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1557 / 212
+-------------------------------------------------------------------------
+Offset:              11.394ns (Levels of Logic = 9)
+  Source:            reset (PAD)
+  Destination:       inst4/next_address_6 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to inst4/next_address_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            44   1.106   1.228  reset_IBUF (reset_IBUF)
+     LUT4_D:I0->O          3   0.612   0.481  inst4/ins_pm<19>1 (ins_pm<19>)
+     LUT4:I2->O            1   0.612   0.387  inst6/stall54_SW0 (N139)
+     LUT4:I2->O           13   0.612   0.866  inst6/stall54 (stall)
+     LUT3:I2->O            4   0.612   0.651  inst4/current_address<3>_SW0 (N37)
+     LUT4:I0->O            3   0.612   0.481  inst4/Madd_increment_address_cy<3>11_SW0 (N60)
+     LUT4:I2->O            1   0.612   0.426  inst3/pc_mux_sel92_SW10 (N133)
+     LUT4:I1->O            3   0.612   0.603  inst4/Madd_increment_address_cy<3>11 (inst4/Madd_increment_address_cy<3>)
+     LUT3:I0->O            1   0.612   0.000  inst4/Madd_increment_address_xor<5>11 (inst4/increment_address<5>)
+     FDR:D                     0.268          inst4/next_address_5
+    ----------------------------------------
+    Total                     11.394ns (6.270ns logic, 5.124ns route)
+                                       (55.0% logic, 45.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 64592 / 76
+-------------------------------------------------------------------------
+Offset:              16.041ns (Levels of Logic = 13)
+  Source:            inst1/Rb_1 (FF)
+  Destination:       current_address<4> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: inst1/Rb_1 to current_address<4>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.514   0.603  inst1/Rb_1 (inst1/Rb_1)
+     LUT4:I0->O            1   0.612   0.360  inst1/bEqualw2526 (inst1/bEqualw2526)
+     LUT4:I3->O            2   0.612   0.449  inst1/bEqualw2578 (inst1/bEqualw2)
+     LUT3:I1->O           16   0.612   0.909  inst1/mux_sel_B_0_or00001 (mux_sel_B<0>)
+     LUT3:I2->O            1   0.612   0.000  inst5/Mmux_temp_B_2_f5_3_F (N245)
+     MUXF5:I0->O           4   0.278   0.529  inst5/Mmux_temp_B_2_f5_3 (inst5/temp_B<4>)
+     LUT3:I2->O            6   0.612   0.638  inst5/B<4>1 (B_4_OBUF)
+     LUT4:I1->O            1   0.612   0.387  inst2/Madd_B_SUB_cy<4>11 (inst2/Madd_B_SUB_cy<4>)
+     LUT3:I2->O            1   0.612   0.000  inst2/Madd_AUX_3_addsub0000_lut<5> (inst2/Madd_AUX_3_addsub0000_lut<5>)
+     MUXCY:S->O            1   0.404   0.000  inst2/Madd_AUX_3_addsub0000_cy<5> (inst2/Madd_AUX_3_addsub0000_cy<5>)
+     MUXCY:CI->O           2   0.399   0.383  inst2/Madd_AUX_3_addsub0000_cy<6> (inst2/temp_carry1)
+     LUT4_D:I3->O         15   0.612   0.867  inst2/flag_ex<0>13 (inst2/flag_ex<0>13)
+     LUT4:I3->O            8   0.612   0.643  inst4/current_address<4> (current_address_4_OBUF)
+     OBUF:I->O                 3.169          current_address_4_OBUF (current_address<4>)
+    ----------------------------------------
+    Total                     16.041ns (10.273ns logic, 5.769ns route)
+                                       (64.0% logic, 36.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 178 / 8
+-------------------------------------------------------------------------
+Delay:               13.425ns (Levels of Logic = 9)
+  Source:            reset (PAD)
+  Destination:       current_address<6> (PAD)
+
+  Data Path: reset to current_address<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            44   1.106   1.228  reset_IBUF (reset_IBUF)
+     LUT4_D:I0->O          3   0.612   0.481  inst4/ins_pm<19>1 (ins_pm<19>)
+     LUT4:I2->O            1   0.612   0.387  inst6/stall54_SW0 (N139)
+     LUT4:I2->O           13   0.612   0.866  inst6/stall54 (stall)
+     LUT3:I2->O            2   0.612   0.383  inst4/current_address<6>_SW0 (N28)
+     LUT4:I3->O            2   0.612   0.410  inst3/pc_mux_sel92_SW4 (N84)
+     LUT4:I2->O            1   0.612   0.509  inst4/current_address<6>_SW2 (N127)
+     LUT4:I0->O            7   0.612   0.602  inst4/current_address<6> (current_address_6_OBUF)
+     OBUF:I->O                 3.169          current_address_6_OBUF (current_address<6>)
+    ----------------------------------------
+    Total                     13.425ns (8.559ns logic, 4.866ns route)
+                                       (63.8% logic, 36.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 40.00 secs
+Total CPU time to Xst completion: 39.83 secs
+ 
+--> 
+
+Total memory usage is 353416 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
+

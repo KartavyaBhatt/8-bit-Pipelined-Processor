@@ -1,0 +1,5 @@
+set -tmpdir "E:/Semester - 3/CO/Lab/MIPS_A11/xst/projnav.tmp"
+set -xsthdpdir "E:/Semester - 3/CO/Lab/MIPS_A11/xst"
+elaborate
+-ifn ExecutionBlock.prj
+-ifmt mixed
